@@ -1,0 +1,11 @@
+# Netlify detects Next.js and applies its OpenNext runtime, but only when the
+# site publishes the .next build output. Pinning it here overrides whatever was
+# typed into the Netlify UI (e.g. "out" or the repo root), which otherwise
+# serves raw files and returns Netlify's own 404 for every route.
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # Next.js 16 needs Node 20.9 or newer.
+  NODE_VERSION = "22"
